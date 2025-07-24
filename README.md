@@ -1,1 +1,4 @@
-# krypton-iot-authorizer
+# The Krypton AWS IoT Authorizer
+The Krypton AWS IoT Authorizer is a custom AWS authorizer lambda function. It is used to implement a custom authentication method to support authenticating calls to AWS IoT Core service. 
+
+Devices managed by Krypton connect to the AWS IoT core MQTT broker and present device access tokens issued by the Krypton Device Security Token Service (DSTS). The AWS IoT Core can be configured to invoke this Krypton AWS IoT Authorizer lambda to authenticate such connection requests. The lambda validates the token signature of JWT tokens and uses the ```device_id``` claim within these access tokens to determine the right authorization policy for the device. This enables the device to connect to AWS IoT core and publish to and subscribe from topics required for bidirectional communication over the AWS IoT MQTT channel.
